@@ -1,24 +1,24 @@
 # Gradle files
-.gradle/
-build/
+Frontend/.gradle/
+Frontend/build/
 
 # Local configuration file (sdk path, etc)
-local.properties
+Frontend/local.properties
 
 # Log/OS Files
 *.log
 
 # Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
+Frontend/captures/
+Frontend/.externalNativeBuild/
+Frontend/.cxx/
 *.aab
 *.apk
 output-metadata.json
 
-# IntelliJ
+# IntelliJ / Android Studio
 *.iml
-.idea/
+Frontend/.idea/
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
