@@ -1,3 +1,11 @@
+# =========================
+# ANDROID / FRONTEND
+# =========================
+
+# Root Android Studio folders
+.idea/
+.gradle/
+
 # Gradle files
 Frontend/.gradle/
 Frontend/build/
@@ -5,13 +13,12 @@ Frontend/build/
 # Local configuration file (sdk path, etc)
 Frontend/local.properties
 
-# Log/OS Files
-*.log
-
 # Android Studio generated files and folders
 Frontend/captures/
 Frontend/.externalNativeBuild/
 Frontend/.cxx/
+
+# Build outputs
 *.aab
 *.apk
 output-metadata.json
@@ -32,3 +39,37 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+
+# =========================
+# NODE.JS / BACKEND
+# =========================
+
+# Dependencies
+Backend/node_modules/
+
+# Environment variables
+Backend/.env
+
+# Logs
+Backend/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+Backend/pids
+Backend/*.pid
+Backend/*.seed
+Backend/*.pid.lock
+
+# Coverage directory used by tools like istanbul
+Backend/coverage/
+
+# Temporary folders
+Backend/tmp/
+Backend/temp/
+
+# OS files
+.DS_Store
+Thumbs.db
