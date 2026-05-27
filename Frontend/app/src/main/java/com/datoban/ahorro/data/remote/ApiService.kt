@@ -5,12 +5,15 @@ import com.datoban.ahorro.data.remote.dto.MetaDto
 import com.datoban.ahorro.data.remote.dto.MiembroDto
 import com.datoban.ahorro.data.remote.dto.RespuestaDto
 import com.datoban.ahorro.data.remote.dto.TotalAporteDto
+import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
 
-    // ── Ping ──────────────────────────────────────────────────────────────────
+    // ── verificarConexion ──────────────────────────────────────────────────────────────────
     @GET("/")
     suspend fun ping(): RespuestaDto
 
@@ -52,4 +55,7 @@ interface ApiService {
     /** Equivale a: SELECT SUM(monto) FROM aportes WHERE metaId = :id AND estado = 'confirmado' */
     @GET("/aportes/meta/{metaId}/total")
     suspend fun getTotalConfirmadoPorMeta(@Path("metaId") metaId: Int): TotalAporteDto
+
+    @POST("aportes")
+    suspend fun registrarAporte(@Body aporte: AporteDto): Response<AporteDto>
 }
