@@ -1,13 +1,13 @@
-package com.datoban.ahorro
+package com.datoban.ahorro.presentacion.screens.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.lifecycle.lifecycleScope
-import com.datoban.ahorro.Instances.retrofitInstance
-import kotlinx.coroutines.launch
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import com.datoban.ahorro.data.remote.retrofitInstance
 
 class MainActivity : ComponentActivity() {
 
