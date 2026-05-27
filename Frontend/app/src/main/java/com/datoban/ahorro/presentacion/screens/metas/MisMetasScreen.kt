@@ -38,7 +38,7 @@ fun MisMetasScreen(navController: NavController) {
 
             Card(
                 onClick = {
-                    navController.navigate("detalleMeta")
+                    navController.navigate("detalleMeta/1")
                 }
             ) {
                 Column(

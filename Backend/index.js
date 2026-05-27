@@ -28,10 +28,16 @@ app.get('/miembros/:id', (req, res) => {
     res.json(miembro);
 });
 
-// GET /miembros/aportantes — solo los que han aportado (sin duplicados)
-app.get('/miembros/aportantes', (req, res) => {
-    const ids = [...new Set(db.aportes.map(a => a.miembroId))];
-    res.json(db.miembros.filter(m => ids.includes(m.id_miembro)));
+// GET /miembros/aportantes/:metaId
+app.get('/miembros/aportantes/:metaId', (req, res) => {
+
+    const aportantes = db.miembros.filter(m =>
+        db.aportes.some(a =>
+            a.metaId === parseInt(req.params.metaId) &&
+            a.miembroId === m.id_miembro
+        )
+    );
+    res.json(aportantes);
 });
 
 // ── Metas ─────────────────────────────────────────────────────────────────────
@@ -69,4 +75,24 @@ app.get('/aportes/meta/:metaId/total', (req, res) => {
         .filter(a => a.metaId === parseInt(req.params.metaId) && a.estado === 'confirmado')
         .reduce((sum, a) => sum + a.monto, 0);
     res.json({ metaId: parseInt(req.params.metaId), total });
+});
+
+// POST /aportes — registrar nuevo aporte
+app.post('/aportes', (req, res) => {
+
+    const nuevoAporte = {
+        id: db.aportes.length + 1,
+        metaId: req.body.metaId,
+        miembroId: req.body.miembroId,
+        monto: req.body.monto,
+        metodoPago: req.body.metodoPago,
+        descripcion: req.body.descripcion,
+        fecha: new Date().toISOString().split("T")[0],
+        estado: "confirmado"
+    };
+
+    db.aportes.push(nuevoAporte);
+
+    res.status(201).json(nuevoAporte);
+
 });

@@ -8,7 +8,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun DetalleMetaScreen(navController: NavController) {
+fun DetalleMetaScreen(
+    navController: NavController,
+    metaId: Int
+) {
 
     Column(
         modifier = Modifier
@@ -17,13 +20,15 @@ fun DetalleMetaScreen(navController: NavController) {
     ) {
 
         Text(
-            "Fondo para Televisor",
+            text = "Detalle Meta #$metaId",
             style = MaterialTheme.typography.headlineMedium
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text("Meta: $3.000.000")
+        Text(
+            text = "Meta: $3.000.000"
+        )
 
         LinearProgressIndicator(
             progress = { 0.40f }
@@ -33,10 +38,12 @@ fun DetalleMetaScreen(navController: NavController) {
 
         Button(
             onClick = {
-                navController.navigate("realizarAporte")
+                navController.navigate("aporte")
             }
         ) {
-            Text("Realizar aporte")
+            Text(
+                text = "Realizar aporte"
+            )
         }
     }
 }
