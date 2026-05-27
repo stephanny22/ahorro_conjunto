@@ -1,6 +1,7 @@
 package com.datoban.ahorro.data.repository
 
 import com.datoban.ahorro.data.remote.ApiService
+import com.datoban.ahorro.data.remote.dto.AporteDto
 import com.datoban.ahorro.domain.model.Aporte
 import com.datoban.ahorro.domain.model.Meta
 import com.datoban.ahorro.domain.model.Miembro
@@ -36,4 +37,15 @@ class AhorroRepositoryImpl(
 
     override suspend fun getTotalConfirmadoPorMeta(metaId: Int): Double =
         api.getTotalConfirmadoPorMeta(metaId).total
+
+    override suspend fun registrarAporte(
+        aporte: Aporte
+    ): Boolean {
+
+        val response = api.registrarAporte(
+            aporte.toDto()
+        )
+
+        return response.isSuccessful
+    }
 }

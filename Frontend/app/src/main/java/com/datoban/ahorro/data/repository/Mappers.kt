@@ -34,3 +34,13 @@ fun AporteDto.toDomain() = Aporte(
     fecha       = fecha,
     estado      = estado
 )
+fun Aporte.toDto() = AporteDto(
+    id = id,
+    metaId = metaId,
+    miembroId = miembroId,
+    monto = monto,
+    metodoPago = metodoPago,
+    descripcion = descripcion,
+    fecha = fecha,
+    estado = estado
+)

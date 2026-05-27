@@ -16,4 +16,9 @@ interface AhorroRepository {
     suspend fun getAportesPorMeta(metaId: Int): List<Aporte>
     suspend fun getAportesPorMiembro(miembroId: Int): List<Aporte>
     suspend fun getTotalConfirmadoPorMeta(metaId: Int): Double
+
+    suspend fun registrarAporte(
+        aporte: Aporte
+    ): Boolean
+
 }
