@@ -10,9 +10,9 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    // ── Ping ──────────────────────────────────────────────────────────────────
+    // ── verificarConexion ──────────────────────────────────────────────────────────────────
     @GET("/")
-    suspend fun ping(): RespuestaDto
+    suspend fun verificarConexion(): RespuestaDto
 
     // ── Miembros ──────────────────────────────────────────────────────────────
     /** Equivale a: SELECT * FROM miembros */

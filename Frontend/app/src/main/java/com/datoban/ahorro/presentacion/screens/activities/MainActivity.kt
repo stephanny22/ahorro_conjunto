@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import com.datoban.ahorro.data.remote.retrofitInstance
+import com.datoban.ahorro.data.remote.RetrofitInstance
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class MainActivity : ComponentActivity() {
 
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
 
             LaunchedEffect(Unit) {
                 try {
-                    val respuesta = retrofitInstance.api.verificarConexion()
+                    val respuesta = RetrofitInstance.api.verificarConexion()
                     mensaje = respuesta.mensaje
                 } catch (e: Exception) {
                     mensaje = "Error: ${e.message}"
