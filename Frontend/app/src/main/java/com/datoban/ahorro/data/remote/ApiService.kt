@@ -12,7 +12,7 @@ interface ApiService {
 
     // ── verificarConexion ──────────────────────────────────────────────────────────────────
     @GET("/")
-    suspend fun verificarConexion(): RespuestaDto
+    suspend fun ping(): RespuestaDto
 
     // ── Miembros ──────────────────────────────────────────────────────────────
     /** Equivale a: SELECT * FROM miembros */
